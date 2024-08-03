@@ -51,7 +51,7 @@ def delete(id_data):
 
 
 @app.route("/update", methods=["POST", "GET"])
-def insert():
+def update():
     if request.method == "POST":
         flash("Data edited")
         id_data = request.form["id"]
@@ -66,3 +66,7 @@ def insert():
         mysql.connection.commit()
 
         return redirect(url_for("Index"))
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
