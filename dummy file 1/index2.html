@@ -3,32 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Student List Management</title>
+    <title>Student Managament System</title>
+    <!-- css bootstrap -->
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     />
+    <!-- logo favicon -->
     <link
       rel="shortcut icon"
-      href="{{ url_for('static', filename='images/logo')}}"
+      href="{{ url_for('static', filename='images/logo.png') }}"
       type="image/x-icon"
     />
   </head>
   <body>
     <div class="container-fluid">
       <h1 class="text-center alert alert-primary m-3">
-        Agent Management System
+        Student Managament System CRUD Application
       </h1>
       <div class="row">
-        <!-- lines -->
-        <!-- Bootstrap Grid System col-sm-2 -->
+        <!-- Bootstrap Grid System and col-sm-2 -->
         <div class="col-sm-2"></div>
 
         <!-- content goes here -->
         <!-- Bootstrap Grid System col-sm-8 -->
         <div class="col-sm-8">
           <h2>
-            Student list
+            Student List
             <button
               class="btn btn-primary float-right"
               data-toggle="modal"
@@ -63,7 +64,7 @@
                     class="modal-title text-primary"
                     style="align-content: center"
                   >
-                    Please Add New Agent
+                    Please Add New Student
                   </h5>
                   <button
                     type="button"
@@ -76,8 +77,8 @@
                 </div>
                 <!-- section form -->
                 <div class="modal-body">
-                  <form action="{{ url_for('insert')}}" method="POST">
-                    <!-- input name  -->
+                  <form action="{{url_for('insert')}}" method="POST">
+                    <!-- Input name -->
                     <div class="form-group">
                       <label>Full Name</label
                       ><input
@@ -85,36 +86,36 @@
                         name="name"
                         class="form-control"
                         id="exampleFormControlInput1"
-                        placeholder="Enter full name"
+                        placeholder="Enter Full Name"
                         required
                       />
                     </div>
-                    <!-- input email -->
+                    <!-- Input email -->
                     <div class="form-group">
-                      <label>Email</label
+                      <label>E-mail</label
                       ><input
                         type="email"
                         name="email"
                         class="form-control"
                         id="exampleFormControlInput1"
-                        placeholder="johnanomalous@domain.ed"
+                        placeholder="example@domain.com"
                         required
                       />
                     </div>
-                    <!-- input phone number -->
+                    <!-- Input phone number -->
                     <div class="form-group">
                       <label>Phone Number</label
                       ><input
-                        type="text"
+                        type="number"
                         name="phone"
                         class="form-control"
                         id="exampleFormControlInput1"
-                        placeholder="+1 2345 6789 0"
+                        placeholder="+62xxxxxxxxxx"
                         required
                       />
                     </div>
 
-                    <button type="submit" class="btn btn-rpimary mb-2">
+                    <button type="submit" class="btn btn-primary mb-2">
                       Save
                     </button>
                   </form>
@@ -122,6 +123,7 @@
               </div>
             </div>
           </div>
+
           <!-- Show all informations form database -->
           <table class="table table-hover">
             <thead>
@@ -140,14 +142,12 @@
                 <td>{{row.2}}</td>
                 <td>{{row.3}}</td>
               </tr>
-
-              <!-- End of edit Agent Modal -->
-              {% endfor %}
             </tbody>
           </table>
         </div>
       </div>
     </div>
+
     <!-- connected to js frameworks for floating form can be showed  -->
     <script
       type="text/javascript"
