@@ -139,7 +139,81 @@
                 <td>{{row.1}}</td>
                 <td>{{row.2}}</td>
                 <td>{{row.3}}</td>
+                <td>
+                  <a
+                    href="/update/{{row.0}}"
+                    class="btn btn-warning btn-sm"
+                    data-toggle="modal"
+                    data-target="#modaledit{{row.0}}"
+                    >Edit</a
+                  >
+                  <a href="/delete/{{row.0}}" class="btn btn-danger btn-sm"
+                    >Delete</a
+                  >
+                </td>
               </tr>
+              <!-- Edit/Delete new student modal -->
+              <div id="modaledit{{row.0}}" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <!-- title floating form -->
+                      <h5 class="modal-title text-primary">
+                        Update Student Details
+                      </h5>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="close"
+                      >
+                        <span>&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form action="{{url_for('update')}}" method="POST">
+                        <input type="hidden" name="id" value="{{row.0}}" />
+                        <div class="form-group">
+                          <label>Full Name</label>
+                          <input
+                            type="text"
+                            value="{{row.1}}"
+                            name="name"
+                            class="form-control"
+                            id="exampleFormControlInput1"
+                            placeholder="Enter full name"
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label>Email</label>
+                          <input
+                            type="text"
+                            value="{{row.2}}"
+                            name="email"
+                            class="form-control"
+                            id="exampleFormControlInput2"
+                            placeholder="Enter your email"
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label>Phone Number</label>
+                          <input
+                            type="text"
+                            value="{{row.3}}"
+                            name="phone"
+                            class="form-control"
+                            id="exampleFormControlInput3"
+                            placeholder="Enter your phone number"
+                          />
+                        </div>
+                        <button type="submit" class="btn btn-success mb-2">
+                          Update
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               <!-- End of edit Agent Modal -->
               {% endfor %}

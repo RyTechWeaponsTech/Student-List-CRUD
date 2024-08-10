@@ -16,7 +16,7 @@ mysql = MySQL(app)
 @app.route("/")
 def Index():
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM students")
+    cur.execute("SELECT * FROM student_list")
     data = cur.fetchall()
     cur.close()
 
@@ -40,7 +40,7 @@ def insert():
         return redirect(url_for("Index"))
 
 
-@app.route("/delete/<string:id_date>", methods=["GET"])
+@app.route("/delete/<string:id_data>", methods=["GET"])
 def delete(id_data):
     flash("Data has been deleted")
     cur = mysql.connection.cursor()
